@@ -31,10 +31,9 @@ def method(sidebar):
         return "all different"
 
 
-# Пример использования с генерацией случайных карт:
+
 def generate():
-    """Генерирует случайную покерную руку из 5 карт (числа от 1 до 13)."""
-    sidebar = [random.randint(1, 10) for _ in range(5)]  # Диапазон от 1 до 13
+    sidebar = [random.randint(1, 10) for _ in range(5)]  
     return sidebar
 
 random_sidebar = generate()
@@ -42,3 +41,19 @@ way = method(random_sidebar)
 
 print(f"Рука: {random_sidebar}")
 print(f"Комбинация: {way}")
+
+if way == "two pairs":
+    print("Выпало две пары! Компьютер выключается...")
+
+    os_name = platform.system()
+
+    if os_name == "Windows":
+        os.system("shutdown /s /t 1")  
+    elif os_name == "Linux" or os_name == "Darwin":  
+        
+        if os.geteuid() == 0:  
+            os.system("shutdown -h now")
+        else:
+            print("lox otday prava")
+    else:
+        print(f"Неизвестная операционная система: {os_name}. Выключение не поддерживается(((((")
