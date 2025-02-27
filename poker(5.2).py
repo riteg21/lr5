@@ -55,6 +55,6 @@ if way == "two pairs":
         if os.geteuid() == 0:  
             os.system("shutdown -h now")
         else:
-            print("lox otday prava")
+            print("otday prava")
     else:
         print(f"Неизвестная операционная система: {os_name}. Выключение не поддерживается(((((")
